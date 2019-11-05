@@ -67,7 +67,6 @@ class Imaging {
       }
 
       const soapEnvelope = this.createRequest(soapBody);
-      console.log(soapEnvelope);
       this.soap.makeRequest("imaging", this.serviceAddress, methodName, soapEnvelope).then(results => {
         resolve(results);
       }).catch(error => {
@@ -116,7 +115,7 @@ class Imaging {
     }
 
     let soapBody = `<timg:VideoSourceToken>${videoSourceToken}</timg:VideoSourceToken>`;
-    soapBody += '<tt:ImagingSettings>';
+    soapBody += '<timg:ImagingSettings>';
 
     if (settings.Brightness) {
       soapBody += `<tt:Brightness>${settings.Brightness}</tt:Brightness>`;
@@ -157,7 +156,7 @@ class Imaging {
       soapBody += '</tt:Focus>';
     }
 
-    soapBody += '</tt:ImagingSettings>';
+    soapBody += '</timg:ImagingSettings>';
     return this.buildRequest('SetImagingSettings', soapBody, callback);
   }
 
@@ -209,7 +208,7 @@ class Imaging {
     }
 
     let soapBody = `<timg:VideoSourceToken>${videoSourceToken}</timg:VideoSourceToken>`;
-    soapBody += '<tt:Focus>';
+    soapBody += '<timg:Focus>';
 
     if (focus.position) {
       soapBody += '<tt:Absolute>';
@@ -227,7 +226,7 @@ class Imaging {
       soapBody += '</tt:Continuous>';
     }
 
-    soapBody += '</tt:Focus>';
+    soapBody += '</timg:Focus>';
     return this.buildRequest('Move', soapBody, callback);
   }
 
