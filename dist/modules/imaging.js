@@ -67,6 +67,7 @@ class Imaging {
       }
 
       const soapEnvelope = this.createRequest(soapBody);
+      console.log(soapEnvelope);
       this.soap.makeRequest("imaging", this.serviceAddress, methodName, soapEnvelope).then(results => {
         resolve(results);
       }).catch(error => {
@@ -130,7 +131,7 @@ class Imaging {
     }
 
     if (settings.Sharpness) {
-      soapBody += `<tt:>${settings.Sharpness}</tt:>`;
+      soapBody += `<tt:Sharpness>${settings.Sharpness}</tt:Sharpness>`;
     }
 
     if (settings.Focus) {
@@ -138,19 +139,19 @@ class Imaging {
       soapBody += '<tt:Focus>';
 
       if (focus.AutoFocusMode) {
-        soapBody += `<tt:>${focus.AutoFocusMode}</tt:>`;
+        soapBody += `<tt:AutoFocusMode>${focus.AutoFocusMode}</tt:AutoFocusMode>`;
       }
 
       if (focus.DefaultSpeed) {
-        soapBody += `<tt:>${focus.DefaultSpeed}</tt:>`;
+        soapBody += `<tt:DefaultSpeed>${focus.DefaultSpeed}</tt:DefaultSpeed>`;
       }
 
       if (focus.NearLimit) {
-        soapBody += `<tt:>${focus.NearLimit}</tt:>`;
+        soapBody += `<tt:NearLimit>${focus.NearLimit}</tt:NearLimit>`;
       }
 
       if (focus.FarLimit) {
-        soapBody += `<tt:>${focus.FarLimit}</tt:>`;
+        soapBody += `<tt:FarLimit>${focus.FarLimit}</tt:FarLimit>`;
       }
 
       soapBody += '</tt:Focus>';
