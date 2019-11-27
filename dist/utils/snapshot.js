@@ -25,7 +25,7 @@ class Snapshot {
         auth: {
           user: this.username,
           pass: this.password,
-          sendImmediately: false
+          sendImmediately: true
         }
       }, (error, response, body) => {
         if (error) {
