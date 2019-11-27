@@ -420,7 +420,7 @@ class Camera {
       return;
     }
 
-    service.XAddr = this.rootPath + xaddrPath.pathname;
+    service.XAddr = this.rootPath + xaddrPath.pathname + xaddrPath.query;
   }
 
   coreGetCapabilities() {

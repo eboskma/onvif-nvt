@@ -1,9 +1,9 @@
-'use strict'
+"use strict";
 
-const Path = require('path')
-const saveXml = require('../lib/utils/save-xml')
+const Path = require("path");
+const saveXml = require("../lib/utils/save-xml");
 // Uncomment to save XML Requests and Resonses
-saveXml.setWritable(true)
+saveXml.setWritable(true);
 
 // for Axis
 // const address = '192.168.0.19'
@@ -13,11 +13,11 @@ saveXml.setWritable(true)
 // const folder = 'axis'
 
 // for Hikvision (PTZ)
-const address = '10.10.1.60'
-const port = 80
-const username = 'admin'
-const password = '12345'
-const folder = 'hikvision'
+const address = "192.168.5.225";
+const port = 80;
+const username = "admin";
+const password = "admin";
+const folder = "herospeed";
 
 // for Hikvision (Fixed)
 // const address = '10.10.1.65'
@@ -41,17 +41,17 @@ const folder = 'hikvision'
 // const folder = 'trendnet'
 
 // functional tests to run. Set to true to test the suite.
-const runDiscovery = false
-const runCore = false
-const runPtz = false
-const runMedia = false
-const runEvents = true
-const runAnalytics = false
-const runSnapshot = false
-const runBackup = false
-const runReboot = false
+const runDiscovery = true;
+const runCore = true;
+const runPtz = true;
+const runMedia = true;
+const runEvents = true;
+const runAnalytics = false;
+const runSnapshot = true;
+const runBackup = false;
+const runReboot = false;
 
-saveXml.setPath(Path.resolve(__dirname, '../test/data/xml/' + folder))
+saveXml.setPath(Path.resolve(__dirname, "../test/data/xml/" + folder));
 
 module.exports = {
   address,
@@ -69,4 +69,4 @@ module.exports = {
   runSnapshot,
   runReboot,
   runBackup
-}
+};
