@@ -2,6 +2,8 @@ const Request = require('request');
 
 const Util = require('./util');
 
+Request.debug = true;
+
 class Snapshot {
   constructor() {
     this.snapshotUri = '';
@@ -22,10 +24,13 @@ class Snapshot {
         uri: this.snapshotUri,
         gzip: true,
         encoding: 'binary',
+        headers: {
+          'User-Agent': 'HttpClient'
+        },
         auth: {
           user: this.username,
           pass: this.password,
-          sendImmediately: true
+          sendImmediately: false
         }
       }, (error, response, body) => {
         if (error) {
