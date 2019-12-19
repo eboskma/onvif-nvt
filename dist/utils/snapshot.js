@@ -2,8 +2,6 @@ const Request = require('request');
 
 const Util = require('./util');
 
-Request.debug = true;
-
 class Snapshot {
   constructor() {
     this.snapshotUri = '';
